@@ -7,6 +7,7 @@ public class RandomBlocksGenerator : MonoBehaviour {
   public float maxRadius;
   public int numberOfBlocks;
   public float size;
+  public float size1;
 
   private Color[] list_of_colors = 
   {
@@ -49,18 +50,18 @@ public class RandomBlocksGenerator : MonoBehaviour {
     if (maxRadius < minRadius)
       return;
 
-    GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-    sphere.transform.parent = transform;
-    sphere.transform.localScale = Vector3.one * (maxRadius + size * 2.0f) * 2.0f;
-    sphere.transform.localPosition = Vector3.zero;
+    GameObject box = GameObject.CreatePrimitive(PrimitiveType.Cube);
+    box.transform.parent = transform;
+    box.transform.localScale = Vector3.one * (maxRadius + size * 2.0f) * 2.0f;
+    box.transform.localPosition = Vector3.zero;
 
-    Mesh sphereMesh = sphere.GetComponent<MeshFilter>().mesh;
-    sphereMesh.triangles = sphereMesh.triangles.Reverse().ToArray();
-    sphereMesh.RecalculateNormals();
-    sphere.GetComponent<SphereCollider>().enabled = false;
-    Destroy(sphere.GetComponent<SphereCollider>());
-    sphere.AddComponent<MeshCollider>();
-    sphere.GetComponent<Renderer>().enabled = false;
+    Mesh boxMesh = box.GetComponent<MeshFilter>().mesh;
+    boxMesh.triangles = boxMesh.triangles.Reverse().ToArray();
+    boxMesh.RecalculateNormals();
+    box.GetComponent<BoxCollider>().enabled = false;
+    Destroy(box.GetComponent<BoxCollider>());
+    box.AddComponent<MeshCollider>();
+    box.GetComponent<Renderer>().enabled = false;
 
     for (int i = 0; i < numberOfBlocks; ++i)
     {
@@ -74,24 +75,19 @@ public class RandomBlocksGenerator : MonoBehaviour {
         radius * Mathf.Cos(theta)
         );
 
-      GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-      cube.transform.parent = transform;
-      cube.transform.rotation = Quaternion.Euler(Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f));
-      cube.transform.localScale = Vector3.one * size;
-      cube.transform.localPosition = position;
-      cube.AddComponent<Rigidbody>();
-      cube.GetComponent<Rigidbody>().useGravity = false;
+      GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+      sphere.transform.parent = transform;
+      sphere.transform.rotation = Quaternion.Euler(Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f), Random.Range(0.0f, 360.0f));
+      sphere.transform.localScale = Vector3.one * Random.Range(size, size1);
+      sphere.transform.localPosition = position;
+      sphere.AddComponent<Rigidbody>();
+      sphere.GetComponent<Rigidbody>().useGravity = true;
 
-      cube.GetComponent<Renderer>().material.color = list_of_colors[Random.Range(0,list_of_colors.Length - 1)];
+      sphere.GetComponent<Renderer>().material.color = list_of_colors[Random.Range(0, list_of_colors.Length - 1)];
     }
   }
-
-	// Use this for initialization
-	void Start () {
-    Reset();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+	void Start () 
+    {
+        Reset();
 	}
 }
