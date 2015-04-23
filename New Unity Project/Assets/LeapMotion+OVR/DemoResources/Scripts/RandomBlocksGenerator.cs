@@ -50,7 +50,7 @@ public class RandomBlocksGenerator : MonoBehaviour {
     if (maxRadius < minRadius)
       return;
 
-    GameObject box = GameObject.CreatePrimitive(PrimitiveType.Cube);
+    GameObject box = GameObject.CreatePrimitive(PrimitiveType.Sphere);
     box.transform.parent = transform;
     box.transform.localScale = Vector3.one * (maxRadius + size * 2.0f) * 2.0f;
     box.transform.localPosition = Vector3.zero;
@@ -58,8 +58,8 @@ public class RandomBlocksGenerator : MonoBehaviour {
     Mesh boxMesh = box.GetComponent<MeshFilter>().mesh;
     boxMesh.triangles = boxMesh.triangles.Reverse().ToArray();
     boxMesh.RecalculateNormals();
-    box.GetComponent<BoxCollider>().enabled = false;
-    Destroy(box.GetComponent<BoxCollider>());
+    box.GetComponent<SphereCollider>().enabled = false;
+    Destroy(box.GetComponent<SphereCollider>());
     box.AddComponent<MeshCollider>();
     box.GetComponent<Renderer>().enabled = false;
 
@@ -81,7 +81,7 @@ public class RandomBlocksGenerator : MonoBehaviour {
       sphere.transform.localScale = Vector3.one * Random.Range(size, size1);
       sphere.transform.localPosition = position;
       sphere.AddComponent<Rigidbody>();
-      sphere.GetComponent<Rigidbody>().useGravity = true;
+      sphere.GetComponent<Rigidbody>().useGravity = false;
 
       sphere.GetComponent<Renderer>().material.color = list_of_colors[Random.Range(0, list_of_colors.Length - 1)];
     }
