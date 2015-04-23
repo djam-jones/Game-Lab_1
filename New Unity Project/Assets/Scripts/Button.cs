@@ -34,12 +34,11 @@ public class Button : MonoBehaviour
                 break;
 
             case 2:
-                Debug.Log("2");
                 Events.Instance.CrocoEvent();
                 break;
 
             case 3:
-                Debug.Log("3");
+				Events.Instance.VoiceEvent();
                 break;
         }
     }
