@@ -7,4 +7,11 @@ public class Tags : MonoBehaviour
     public const string handTag = "Hand";
     public const string plantTag = "Plant";
     public const string crocoTag = "Croco";
+
+	//FNAF
+	public const string Doors = "Doors";
+	public const string Lights = "Lights";
+	public const string MainCamera = "MainCamera";
+	public const string Cameras = "Cameras";
+	public const string GameController = "GameController";
 }
