@@ -29,7 +29,7 @@ public class Button : MonoBehaviour
     {
         switch (index)
         {
-            case 1:         
+            case 1:
                 Events.Instance.PlantEvent();
                 break;
 
