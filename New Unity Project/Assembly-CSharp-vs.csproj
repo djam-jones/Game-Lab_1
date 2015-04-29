@@ -46,6 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\FNAF\Scripts\CamStatic.cs" />
+     <Compile Include="Assets\FNAF\Scripts\DoorLight.cs" />
+     <Compile Include="Assets\FNAF\Scripts\EnemyBehaviour.cs" />
+     <Compile Include="Assets\FNAF\Scripts\LaptopController.cs" />
      <Compile Include="Assets\LeapMotion+OVR\DemoResources\Scripts\BlocksPlaneGenerator.cs" />
      <Compile Include="Assets\LeapMotion+OVR\DemoResources\Scripts\MovementManager.cs" />
      <Compile Include="Assets\LeapMotion+OVR\DemoResources\Scripts\RandomBlocksGenerator.cs" />

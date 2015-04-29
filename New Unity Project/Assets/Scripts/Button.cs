@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Button : MonoBehaviour
 {
-    private int _randomNumber;
+    private int _randomNumber = 0;
     private float _interval = 5f;
     private Collider _buttonCol;
 
