@@ -10,9 +10,9 @@ public class leverMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (this.transform.rotation.x >= 0)
+        if (transform.rotation.x <= 70 && transform.rotation.x >= -90) 
         {
-            transform.Rotate(Vector3.up * Time.deltaTime);
-        }
-	}
+            transform.Rotate(Vector3.left * Time.deltaTime * 100);
+        }	
+    }
 }
