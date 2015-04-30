@@ -16,28 +16,32 @@ public class Button : MonoBehaviour
     {
         if (Other.gameObject.tag == Tags.handTag)
         {
+            Debug.Log("collition");
             StartCoroutine(ButtonInterval());
 
             _randomNumber = Random.Range(1, 4);
             RandomEvent(_randomNumber);
-
-            
+           
         }
     }
 
     void RandomEvent(int index)
     {
+       
         switch (index)
         {
             case 1:
+                 Debug.Log("collition 2");
                 Events.Instance.PlantEvent();
                 break;
 
             case 2:
+                 Debug.Log("collition 2");
                 Events.Instance.CrocoEvent();
                 break;
 
             case 3:
+                 Debug.Log("collition 2");
 				Events.Instance.VoiceEvent();
                 break;
         }
