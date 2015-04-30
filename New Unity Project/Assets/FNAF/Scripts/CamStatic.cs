@@ -7,21 +7,17 @@ public class CamStatic : MonoBehaviour {
 	public Image staticImg;
 	public Sprite[] cookies;
 	public bool laptopOpen;
+	private Color _invisColor = new Color (1, 1, 1, 0);
+	private Color _visColor = new Color (1, 1, 1, 1);
 
-	void Start()
-	{
-		//staticImg.sprite.
-	}
 	void Update () 
 	{
-		Color invisColor = new Color (1, 1, 1, 0);
-		Color visColor = new Color (1, 1, 1, 1);
 		if (laptopOpen == true)
 		{
-			staticImg.color = visColor;
+			staticImg.color = _visColor;
 			staticImg.sprite = cookies [Random.Range (0, cookies.Length)];
 		}
 		else
-			staticImg.color = invisColor;
+			staticImg.color = _invisColor;
 	}
 }

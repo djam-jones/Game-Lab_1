@@ -30,6 +30,7 @@ public class LaptopController : MonoBehaviour {
 	}
 	public void OpenLaptop()
 	{
+		GameObject.Find ("Enemy").GetComponent<RandomLoc> ().GoRandomPositioneh ();
 		_camStatic.laptopOpen = true;
 		openLapObj.SetActive (false);
 		closeLapObj.SetActive (true);
