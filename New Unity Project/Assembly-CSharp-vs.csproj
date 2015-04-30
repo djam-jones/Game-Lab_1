@@ -122,6 +122,7 @@
      <Compile Include="Assets\Scripts\Events.cs" />
      <Compile Include="Assets\Scripts\Rotation.cs" />
      <Compile Include="Assets\Scripts\Tags.cs" />
+     <Compile Include="Assets\Scripts\leverMove.cs" />
      <Compile Include="Assets\expandRoofTest.cs" />
      <None Include="Assets\LeapMotion\Resources\LeapRGBDistorted.shader" />
      <None Include="Assets\OVR\Shaders\TextShader3D.shader" />
