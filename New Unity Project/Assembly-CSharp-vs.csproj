@@ -116,10 +116,13 @@
      <Compile Include="Assets\OVR\Scripts\Util\OVRScreenFade.cs" />
      <Compile Include="Assets\OVR\Scripts\Util\OVRUGUI.cs" />
      <Compile Include="Assets\OVR\Scripts\Util\OVRVisionGuide.cs" />
+     <Compile Include="Assets\Power.cs" />
+     <Compile Include="Assets\RandomLoc.cs" />
      <Compile Include="Assets\Scripts\Button.cs" />
      <Compile Include="Assets\Scripts\Events.cs" />
      <Compile Include="Assets\Scripts\Rotation.cs" />
      <Compile Include="Assets\Scripts\Tags.cs" />
+     <Compile Include="Assets\expandRoofTest.cs" />
      <None Include="Assets\LeapMotion\Resources\LeapRGBDistorted.shader" />
      <None Include="Assets\OVR\Shaders\TextShader3D.shader" />
      <None Include="Assets\LeapMotion\CoreAssetVersion.txt" />

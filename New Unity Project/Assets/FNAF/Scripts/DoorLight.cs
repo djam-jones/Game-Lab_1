@@ -5,16 +5,26 @@ public class DoorLight : MonoBehaviour {
 
 	public GameObject ObjectToActivate;
 
-	public bool leftOpened;
-	public bool rightOpened;
+	public bool leftClosed;
+	public bool rightClosed;
 
 	private string _leftDoor = "LeftDoor";
 	private string _rightDoor = "RightDoor";
 
+	private Vector3 _temp;
+	private Power _power;
+
+	void Start()
+	{
+		_temp = new Vector3 (0, 2.71f, 0);
+		_power = GameObject.FindGameObjectWithTag (Tags.GameController).GetComponent<Power> ();
+	}
 	void OnMouseDown()
 	{
 		if (ObjectToActivate.tag == Tags.Doors)
 			ActivateDoor ();
+		else if (ObjectToActivate.tag == Tags.Lights)
+			_power.powerUsage += 1;
 	}
 	void OnMouseDrag()
 	{
@@ -24,7 +34,10 @@ public class DoorLight : MonoBehaviour {
 	void OnMouseUp()
 	{
 		if (ObjectToActivate.tag == Tags.Lights)
+		{
 			ObjectToActivate.GetComponent<Light> ().intensity = 0;
+			_power.powerUsage -= 1;
+		}
 	}
 	void ActivateLight()
 	{
@@ -39,28 +52,30 @@ public class DoorLight : MonoBehaviour {
 	}
 	void LeftDoor()
 	{
-		Vector3 temp = new Vector3 (0, 2.71f, 0);
-		if (leftOpened == true) 
+		if (leftClosed == true) 
 		{
-			leftOpened = false;
-			ObjectToActivate.transform.localPosition -= temp;
+			leftClosed = false;
+			_power.powerUsage -= 1f;
+			ObjectToActivate.transform.localPosition -= _temp;
 		}else
 		{
-			leftOpened = true;
-			ObjectToActivate.transform.localPosition += temp;
+			leftClosed = true;
+			_power.powerUsage += 1f;
+			ObjectToActivate.transform.localPosition += _temp;
 		}
 	}
 	void RightDoor()
 	{
-		Vector3 temp = new Vector3 (0, 2.71f, 0);
-		if (rightOpened == true) 
+		if (rightClosed == true) 
 		{
-			rightOpened = false;
-			ObjectToActivate.transform.localPosition -= temp;
+			rightClosed = false;
+			_power.powerUsage -= 1f;
+			ObjectToActivate.transform.localPosition -= _temp;
 		}else
 		{
-			rightOpened = true;
-			ObjectToActivate.transform.localPosition += temp;
+			rightClosed = true;
+			_power.powerUsage += 1f;
+			ObjectToActivate.transform.localPosition += _temp;
 		}
 	}
 	/*
