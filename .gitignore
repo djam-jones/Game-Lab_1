@@ -3,6 +3,8 @@
 # =============== #
 Temp/
 Library/
+LeapMotion+OVR/*.
+LeapMotion/
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #

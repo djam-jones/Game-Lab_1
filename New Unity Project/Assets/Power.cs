@@ -12,7 +12,7 @@ public class Power : MonoBehaviour {
 	
 	void Start () 
 	{
-		powerUsage = 1f;
+		powerUsage = 3f;
 		_maxPower = 25000f;
 		power = 25000f;
 	}

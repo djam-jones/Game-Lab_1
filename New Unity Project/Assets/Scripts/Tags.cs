@@ -15,4 +15,5 @@ public class Tags : MonoBehaviour {
     public const string MainCamera = "MainCamera";
     public const string Cameras = "Cameras";
     public const string GameController = "GameController";
+	public const string Hands = "Hands";
 }

@@ -16,9 +16,15 @@ public class DoorLight : MonoBehaviour {
 
 	void Start()
 	{
-		_temp = new Vector3 (0, 2.71f, 0);
 		_power = GameObject.FindGameObjectWithTag (Tags.GameController).GetComponent<Power> ();
+		if (ObjectToActivate.tag == Tags.Doors) 
+		{
+			RightDoor ();
+			LeftDoor ();
+		}
+		_temp = new Vector3 (0, 2.71f, 0);
 	}
+	/*
 	void OnMouseDown()
 	{
 		if (ObjectToActivate.tag == Tags.Doors)
@@ -38,6 +44,36 @@ public class DoorLight : MonoBehaviour {
 			ObjectToActivate.GetComponent<Light> ().intensity = 0;
 			_power.powerUsage -= 1;
 		}
+	}*/
+
+	void OnCollisionEnter (Collision other)
+	{	
+		if (other.gameObject.tag == Tags.Hands) 
+		{
+			if (ObjectToActivate.tag == Tags.Doors)
+				ActivateDoor ();
+			else if (ObjectToActivate.tag == Tags.Lights)
+				_power.powerUsage += 1;
+		}
+	}
+	void OnCollisionStay (Collision other)
+	{
+		if (other.gameObject.tag == Tags.Hands)
+		{
+			if (ObjectToActivate.tag == Tags.Lights)
+				ActivateLight ();
+		}
+	}
+	void OnCollisionExit (Collision other)
+	{
+		if (other.gameObject.tag == Tags.Hands)
+		{
+			if (ObjectToActivate.tag == Tags.Lights)
+			{
+				ObjectToActivate.GetComponent<Light> ().intensity = 0;
+				_power.powerUsage -= 1;
+			}
+		}
 	}
 	void ActivateLight()
 	{
@@ -55,12 +91,12 @@ public class DoorLight : MonoBehaviour {
 		if (leftClosed == true) 
 		{
 			leftClosed = false;
-			_power.powerUsage -= 1f;
+			_power.powerUsage += 1f;
 			ObjectToActivate.transform.localPosition -= _temp;
 		}else
 		{
 			leftClosed = true;
-			_power.powerUsage += 1f;
+			_power.powerUsage -= 1f;
 			ObjectToActivate.transform.localPosition += _temp;
 		}
 	}
@@ -69,12 +105,12 @@ public class DoorLight : MonoBehaviour {
 		if (rightClosed == true) 
 		{
 			rightClosed = false;
-			_power.powerUsage -= 1f;
+			_power.powerUsage += 1f;
 			ObjectToActivate.transform.localPosition -= _temp;
 		}else
 		{
 			rightClosed = true;
-			_power.powerUsage += 1f;
+			_power.powerUsage -= 1f;
 			ObjectToActivate.transform.localPosition += _temp;
 		}
 	}
