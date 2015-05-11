@@ -2,17 +2,33 @@
 using System.Collections;
 
 public class leverMove : MonoBehaviour {
+    private Quaternion _rot;
+    private bool _switched = false;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
+    void Start()
+    {
+        _rot = transform.rotation;
+    }
+
 	void Update () {
-        if (transform.rotation.x <= 70 && transform.rotation.x >= -90) 
+
+        Debug.Log(transform.rotation.x);
+        if (Input.GetKeyDown(KeyCode.W))
+            _switched = true;
+        if (_switched)
+            Switch();
+    }
+
+    void Switch()
+    {
+        if (this.transform.rotation.x <= 0.5f)
         {
-            transform.Rotate(Vector3.left * Time.deltaTime * 100);
-        }	
+            this.transform.Rotate(Vector3.right * Time.deltaTime * 10);
+        }
+        else if (this.transform.rotation.x >= 0.5f)
+        {
+            this.transform.rotation = _rot;
+            _switched = false;
+        }
     }
 }
