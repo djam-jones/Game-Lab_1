@@ -24,12 +24,6 @@ public class Events : MonoBehaviour {
         GameObject.FindGameObjectWithTag(Tags.plantTag).transform.position = new Vector3(-2, 0, 8.5f);
     }
 
-    public void CrocoEvent()
-    {
-        Debug.Log("croco");
-        //GameObject.FindGameObjectWithTag(Tags.crocoTag).transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1, this.transform.position.z);
-    }
-
 	public void VoiceEvent()
 	{
         Debug.Log("voice");

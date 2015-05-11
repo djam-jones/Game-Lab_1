@@ -21,7 +21,10 @@ public class Button : MonoBehaviour
 
             _randomNumber = Random.Range(1, 4);
             RandomEvent(_randomNumber);
+<<<<<<< HEAD
+=======
            
+>>>>>>> origin/master
         }
     }
 
