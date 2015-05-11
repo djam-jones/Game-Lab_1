@@ -122,8 +122,16 @@
      <Compile Include="Assets\Scripts\RandomLoc.cs" />
      <Compile Include="Assets\Scripts\Rotation.cs" />
      <Compile Include="Assets\Scripts\Tags.cs" />
+<<<<<<< HEAD
      <Compile Include="Assets\Scripts\expandRoofTest.cs" />
      <Compile Include="Assets\Scripts\leverMove.cs" />
+=======
+     <Compile Include="Assets\Scripts\leverMove.cs" />
+     <Compile Include="Assets\expandRoofTest.cs" />
+     <None Include="Assets\LeapMotion\Resources\LeapRGBDistorted.shader" />
+     <None Include="Assets\OVR\Shaders\TextShader3D.shader" />
+     <None Include="Assets\LeapMotion\CoreAssetVersion.txt" />
+>>>>>>> origin/master
      <None Include="Assets\LeapMotion\Resources\LeapIRUndistorted.shader" />
      <None Include="Assets\Plugins\donotdelete.txt" />
      <None Include="Assets\LeapMotion\Materials\Sources\Shaders\Toony-Basic.shader" />
